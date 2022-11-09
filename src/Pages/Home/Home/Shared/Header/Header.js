@@ -13,6 +13,7 @@ const Header = () => {
                 <ul className="menu menu-horizontal p-0">
                     <li><a href="/" alt=" ">Home</a></li>
                     <li><a href="/" alt=" ">Services</a></li>
+                    <li><a href="/login" alt=" ">Login</a></li>
                     <li><a href="/" alt=" ">Blog</a></li>
                     <li><a href="/" alt=" ">Appointment</a></li>
                 </ul>
