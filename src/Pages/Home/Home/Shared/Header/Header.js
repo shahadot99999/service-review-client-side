@@ -15,7 +15,7 @@ const Header = () => {
                     <li><a href="/" alt=" ">Services</a></li>
                     <li><a href="/login" alt=" ">Login</a></li>
                     <li><a href="/" alt=" ">Blog</a></li>
-                    <li><a href="/" alt=" ">Appointment</a></li>
+                    <li><a href="/appointment" alt=" ">Appointment</a></li>
                 </ul>
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
