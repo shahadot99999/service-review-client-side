@@ -37,9 +37,9 @@ const Header = () => {
                 <ul className="menu menu-horizontal p-0">
                     <li><a href="/" alt=" ">Home</a></li>
                     <li><a href="/service" alt=" ">Services</a></li>
-                    {/* <li><a href="/login" alt=" ">Login</a></li> */}
+
                     <li><a href="/blog" alt=" ">Blog</a></li>
-                    {/* <li><a href="/appointment" alt=" ">Appointment</a></li> */}
+
                     {menuItem}
                 </ul>
                 <div className="dropdown dropdown-end">
