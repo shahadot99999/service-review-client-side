@@ -8,14 +8,38 @@ const Appointment = () => {
     const [appointments, setAppointment] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/appointments?email=${user?.email}`)
+        fetch(`https://b6a11-service-review-server-side-shahadot99999.vercel.app/appointments?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setAppointment(data))
     }, [user?.email])
 
+    const handleDelete = id => {
+        const proceed = window.confirm('Are you sure, you want to cancel Appointment');
+        if (proceed) {
+            fetch(`https://b6a11-service-review-server-side-shahadot99999.vercel.app/appointments/${id}`,
+                {
+                    method: 'DELETE'
+
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+
+                        alert(' deleted successfully ');
+                        const remaining = appointments.filter(odr => odr._id !== id);
+                        setAppointment(remaining);
+                    }
+
+                })
+        }
+
+    }
+
+
     return (
         <div>
-            <h2 className="text-5xl">You have {appointments.length} Orders</h2>
+            <h2 className="text-2xl">Appointment {appointments.length} </h2>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     <thead>
@@ -32,7 +56,7 @@ const Appointment = () => {
                             appointments.map(appointment => <AppointmentRow
                                 key={appointment._id}
                                 appointment={appointment}
-
+                                handleDelete={handleDelete}
                             ></AppointmentRow>)
                         }
                     </tbody>

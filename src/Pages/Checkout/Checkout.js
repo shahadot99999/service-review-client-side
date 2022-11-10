@@ -26,7 +26,7 @@ const Checkout = () => {
             problem
         }
 
-        fetch('http://localhost:5000/appointments', {
+        fetch('https://b6a11-service-review-server-side-shahadot99999.vercel.app/appointments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

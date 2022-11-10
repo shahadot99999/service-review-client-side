@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from 'react';
 
-const AppointmentRow = ({ appointment }) => {
+const AppointmentRow = ({ appointment, handleDelete }) => {
 
-    const { customer, phone, problem, service } = appointment;
+    const { _id, customer, phone, problem, service } = appointment;
     const [appointmentService, setAppointment] = useState({})
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${service}`)
+        fetch(`https://b6a11-service-review-server-side-shahadot99999.vercel.app/services/${service}`)
             .then(res => res.json())
             .then(data => setAppointment(data));
     }, [service])
     return (
         <tr>
-            <th>
 
+            <th>
+                <label>
+                    <button onClick={() => handleDelete(_id)} className='btn btn-ghost'>X</button>
+                </label>
             </th>
+
             <td>
                 <div className="flex items-center space-x-3">
                     <div className="avatar">
@@ -36,6 +40,12 @@ const AppointmentRow = ({ appointment }) => {
             <td>
                 <span className="text-1xl badge badge-ghost badge-sm">{problem}</span>
             </td>
+
+            {/* <th>
+                <button
+                    onClick={() => handleStatusUpdate(_id)}
+                    className="btn btn-ghost btn-xs">{status ? status : 'pending'}</button>
+            </th> */}
 
 
         </tr>
